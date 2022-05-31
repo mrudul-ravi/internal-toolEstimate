@@ -1,0 +1,269 @@
+{% extends 'invoice/base.html' %}
+{% load static %}
+{% block content %}
+<!--
+  ~ Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<title>APRO IT Solutions - Services</title>
+<head>
+    <!-- CSS LINK FROM VIEWS.PY -->
+    <link rel="stylesheet" href="{{css_link_a}}">
+    <link rel="stylesheet" href="{{css_link_b}}">
+    <link rel="stylesheet" href="{{css_link_c}}">
+    <link rel="stylesheet" href="{{css_link_d}}">
+    <link rel="stylesheet" href="{{css_link_e}}">
+     <script src="https://kit.fontawesome.com/kitcode.js" crossorigin="anonymous"> </script>
+                            <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"> </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!-- side nav -->
+<div class="sidenav">
+    <!-- logo section -->
+    <div class="aside">
+        <div class="aside_one">
+            <img src="{{image_src_a}}" style="border-radius: 50%; height: 40px; width: 40px;">
+        </div>
+        <div class="aside_two">
+            <h5 style="color: white; padding-left: 10px;">{{main_title}}</h5>
+        </div>
+        <div class="aside_one">
+            <div class="dropdown" style="padding-bottom: 15px;">
+                <button class="dropbtn">{{create}}</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'invoice:invoice-create-tax-estimate' %}" style="color: white;">{{tax_estimate}}</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="aside_one">
+            <div class="dropdown" style="padding-bottom: 15px;">
+                <button class="dropbtn">&nbsp;{{view}}&nbsp;&nbsp;</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:invoice-list' %}" style="color: white;">{{tax_view_estimate}}</a>
+                </div>
+            </div>
+    </div>
+
+<div class="aside_one">
+            <div class="dropdown" style="padding-bottom: 15px;">
+                <button class="dropbtn">{{export}}</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:export-customers' %}" style="color: white;">{{export_customers_csv}}</a>
+                      <a href="{% url 'invoice:export-users' %}" style="color: white;">{{export_users}}</a>
+                </div>
+            </div>
+</div>
+<div class="aside_one">
+            <div class="dropdown" style="padding-bottom: 15px;">
+                <button class="dropbtn">&nbsp;{{sort}}&nbsp;&nbsp;</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:invoice-list-date-positive' %}" style="color: white;">{{sort_by_date_positive}}</a>
+                      <a href="{% url 'invoice:invoice-list-date-negative' %}" style="color: white;">{{sort_by_date_negative}}</a>
+
+                </div>
+
+            </div>
+</div>
+
+    <!-- end logo section -->
+    <!-- dasboard dropdwn -->
+    <!-- end dasbord dropdwn -->
+    <!-- search bar -->
+<!--    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px; padding-left: 10px;">-->
+<!--        <input type="text" placeholder="Search.." name="search2">-->
+<!--        <button type="submit"><i class="fa fa-search"></i></button>-->
+<!--    </form>-->
+    <!-- end search bar -->
+    <!-- filter section -->
+    <div class="filter_container">
+
+
+
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;" >
+                    <a href="/users-list" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">{{title_view_users}}</b></a>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;" >
+                    <a href="/admin/auth/user/add/" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">{{title_create_users}}</b></a>
+                </button>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;" >
+                    <a href="/admin/password_change/" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">{{title_change_password}}</b></a>
+                </button>
+
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;">
+                    <a href="/admin" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">{{title_f}}</b></a>
+                </button>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;">
+
+                    <a href="/system-status" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;"><i class="fas fa-server">&nbsp;&nbsp;&nbsp;{{system_status}}</i></b></a>
+
+                </button>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <button style="background-color:#343a40 ; width: 150px;">
+                    <a href="{% url 'invoice:logout' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;"><i class="fas fa-sign-out-alt">&nbsp;&nbsp;&nbsp;{{logout}}</i></b></a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- end filter section -->
+</div>
+
+<!-- end side nav -->
+<!-- box section -->
+<header>
+{% if user.is_authenticated %}
+
+
+<style>
+.master{
+    width:100%;
+    text-align:center;
+    }
+.master .abc{display:inline}
+.left{float:left}
+.right{float:right}
+</style>
+    <br/>
+ <div class="master abc" style="font-weight:200;font-family: fangsong;">
+    <div class="left abc">Current User: {{user.get_username}}</div>
+    <div class="abc">Current Private IP: {{current_ip_address}}</div>
+    <div class="right abc">Last Login Time: {{user.last_login}}</div>
+</div>
+    <br/>
+    <br/>
+{% else %}
+{% endif %}
+    <div class="flex-container">
+
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{total_count}}</h3>
+                    <a href=""><b>No. of Estimates</b></a>
+                </div>
+                <div class="icon">
+                    <i class="far fa-file-alt"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>3</h3>
+                    <a href="{% url 'invoice:our-services' %}"><b>No. of Services</b></a>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-wrench"></i>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{total_users}}</h3>
+            <a href="/admin/auth/user/">    <b>No. of Users</b></a>
+                </div>
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>0</h3>
+                    <a href="#"> <b>No. of Errors</b></a>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-shield-alt"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end box section -->
+<!-- <h1 style="text-align:center;"><b>Estimate Generator</b></h1>  <br>&nbsp;
+<div style="text-align: center;"><h3 id="clock"></h3></div> -->
+
+<style>
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 50px;
+            padding: 30px;
+        }
+
+        .photo {
+            max-width: 31.333%;
+            padding: 0 10px;
+            height: 240px;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+ <div class="images">
+        <div class="photo">
+            <img src="http://apropack.com/assets/apro-rigs.svg" alt="photo" />
+
+        </div>
+
+        <div class="photo">
+            <img src="http://apropack.com/assets/apro-it.svg" alt="photo" />
+
+        </div>
+
+        <div class="photo">
+            <img src="http://apropack.com/assets/apro-hosting.svg" alt="photo" />
+
+        </div>
+    </div>
+
+
+<br>
+<br>
+    {% endblock content %}

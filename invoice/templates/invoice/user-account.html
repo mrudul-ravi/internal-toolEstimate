@@ -1,0 +1,251 @@
+{% extends 'invoice/base.html' %}
+{% load static %}
+{% block content %}
+<!--
+  ~ Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<head>
+    <!-- CSS LINK FROM VIEWS.PY -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="static\css\style.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://kit.fontawesome.com/kitcode.js" crossorigin="anonymous"> </script>
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"> </script>
+
+
+</head>
+<!-- side nav -->
+
+<div class="sidenav">
+    <!-- logo section -->
+    <div class="aside">
+        <div class="aside_one">
+            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEw4CeRYGE1Fg/profile-displayphoto-shrink_200_200/0/1602676941276?e=1655337600&v=beta&t=SYbeRRL8MilPLKuOpl5EG1U6nBtAtw5pLb3G_sQXqo4" style="border-radius: 50%; height: 40px; width: 40px;">
+        </div>
+
+        <div class="aside_two">
+            <h5 style="color: white; padding-left: 10px;">APRO ESTIMATE</h5>
+            <hr>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="aside_one">
+            <div class="dropdown">
+                <button class="dropbtn" style="padding-right:15px ;">CREATE</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'invoice:invoice-create-tax-estimate' %}" style="color: white;">TAX ESTIMATE</a>
+                </div>
+            </div>
+        </div>
+<div class="aside_one">
+            <div class="dropdown">
+                <button class="dropbtn" style="padding-right:29px ;">VIEW</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:invoice-list' %}" style="color: white;">VIEW TAX ESTIMATES</a>
+                </div>
+            </div>
+    </div>
+<div class="aside_one">
+            <div class="dropdown">
+                <button class="dropbtn" style="padding-right:14px ;">EXPORT</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:export-customers' %}" style="color: white;">EXPORT CUSTOMERS AS CSV</a>
+                      <a href="{% url 'invoice:export-users' %}" style="color: white;">EXPORT USERS AS CSV</a>
+                </div>
+            </div>
+</div>
+<div class="aside_one">
+            <div class="dropdown">
+                <button class="dropbtn" style="padding-right:29px ;">{{sort}}</button>
+                <div class="dropdown-content">
+                      <a href="{% url 'invoice:invoice-list-date-positive' %}" style="color: white;">SORT BY DATE (+)</a>
+                      <a href="{% url 'invoice:invoice-list-date-negative' %}" style="color: white;">SORT BY DATE (-)</a>
+
+                </div>
+
+            </div>
+</div>
+
+    <!-- end logo section -->
+    <!-- dasboard dropdwn -->
+    <!-- end dasbord dropdwn -->
+
+    <!-- filter section -->
+    <div class="filter_container">
+
+
+
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="/users-list" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">View Users</b></a>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="/admin/auth/user/add/" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">Create Users</b></a>
+                </p>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="/admin/password_change/" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">Change Password</b></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="/admin" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">Admin Panel</b></a>
+                </p>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="/system-status" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">System Status</b></a>
+                </p>
+            </div>
+        </div>
+        <div class="filter_container_inner">
+            <div style="padding:10px;">
+                <!-- <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+                    <a href="{% url 'invoice:logout' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">{{logout}}</b></a>
+                </p> -->
+            </div>
+        </div>
+    </div>
+    <!-- end filter section -->
+</div>
+
+
+<!-- end side nav -->
+<!-- box section -->
+
+<!-- top bar bootstrap -->
+<header>
+    {% if user.is_authenticated %}
+
+<ul>
+    <li><a class="active" href="{% url 'invoice:user-account' %}">
+
+        <div>Current User: {{user.get_username}}</div>
+
+
+    </a></li>
+    <li><a href="#">
+
+        <div>Current Private IP: {{current_ip_address}}</div>
+    </a></li>
+    <li><a href="#">
+        <div>Last Login Time: {{user.last_login}}</div>
+    </a></li>
+
+    <li style="float:right">
+
+        <p style="background-color:#343a40 ; width: 150px;" class="sidebarsection">
+            <a href="{% url 'invoice:logout' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><b style="color: white;">LOGOUT</b></a>
+        </p>
+
+
+
+    </li>
+  </ul>
+
+  {% else %}
+{% endif %}
+
+<!-- end topbar bootstrap -->
+
+    <div class="flex-container">
+
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{total_count}}</h3>
+                    <a href=""><b>No. of Estimates</b></a>
+                </div>
+                <div class="icon">
+                    <i class="far fa-file-alt"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>3</h3>
+                    <a href="{% url 'invoice:our-services' %}"><b>No. of Services</b></a>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-wrench"></i>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{total_users}}</h3>
+            <a href="/admin/auth/user/">    <b>No. of Users</b></a>
+                </div>
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>0</h3>
+                    <a href="#"> <b>No. of Errors</b></a>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-shield-alt"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end box section -->
+
+
+<div>
+    <h1>Name: <b>{{user.first_name}}&nbsp;{{user.last_name}}</b></h1>
+    <h1>User Name: <b>{{user.get_username}}</b></h1>
+    <h1>Email Address: <b>{{user.email}}</b></h1>
+    <h1>Last Login:<b>{{user.last_login}}</b></h1>
+</div>
+<br/>
+    <div style="margin-right:76%;}"><p>Page Render Time:{{page_render}}</p></div>
+    {% endblock content %}
